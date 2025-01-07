@@ -1,0 +1,137 @@
+#Python Practice: 
+
+#Lists
+list = [1,2,3]
+print(list)
+list.append('test0')
+print(list)
+list1 = [4,5,6] 
+list.extend(list1)
+print(list)
+
+list.append(7)
+print(list)
+list.insert(1,'X')
+print(list)
+
+#Sorting
+list = [1,2,6,4,3]
+list.sort()
+print(list)
+list.sort(reverse=True)
+print(list) 
+
+#Stacks
+stack = ['John', 'Jim', 'Susy', 'Kenny', 'Maya']
+stack.append('Alan')
+print(stack)
+#stack.pop()
+print (stack.pop())
+print(stack)
+
+from collections import deque 
+queue = deque(['John', 'Jim', 'Susy', 'Kenny', 'Maya'])
+print(queue)
+deque(['John', 'Jim'])
+queue.append('Alan')
+print(queue.popleft())
+print(queue)
+
+#Tuples - immutable version of lists
+mytuple = ('Jim', 'Susy')
+print(mytuple[0])
+print(mytuple[1])
+
+#Sets - unordered collection, storing multiple elements in one set
+
+myset = {'Alan', 'Susy', 'John', 'Sara', 'Taylor', 'Jeff'}
+print(myset) #click run again to see the change
+
+newlist = {'A', 'A', 'B', 'C', 'D'}
+set(newlist)
+print(newlist)  #proof it doesn't have repeat values
+
+print('A' in newlist)
+print('E' in newlist)
+
+x = set('Python')
+print(x)
+
+set1 = set('abc')
+set2 = set('cde')
+
+print(set1)
+print(set2)
+
+#intersection
+
+print(set1.intersection(set2))
+
+print(set.union(set2))
+
+print(set1.difference(set2))
+print(set2.difference(set1))
+
+print(set1.symmetric_difference(set2))
+
+#Dictionaries
+person = {'name': 'Patel', 'age' : '25'}
+print(person['name'])
+
+print(person.keys())
+#list(person.keys())
+#list(person.values())
+print(person.items())
+
+for key,value in person.items(): 
+    print(f"The key {key} is attached to value {value}")
+
+print(person.get('friends'))
+print(person.get('name'))
+
+#update dictionary with another dictionary
+
+test0 = {'is_female' : True}
+person.update(test0)
+print(person) 
+person.clear()
+print(person)
+
+#LinkedList
+
+class Node: 
+    def __init__ (self,data=None, next=None): 
+        self.data = data
+        self.next = next
+
+class LinkedList: 
+    def __init__ (self): 
+        self.head = None
+    def insert_at_beg(self, data): 
+        node = Node(data, self.head)
+        self.head = node
+    def print(self): 
+        if self.head is None:
+            print('Linked List is empty')
+            return
+        itr = self.head
+        llstring = ''
+        while llstring: 
+            llstr += str(itr.data) + '---->'
+            itr = itr.next
+
+        print(llstring) 
+
+    def insert_at_end(self,data): 
+        if self.head is None: 
+            self.head = Node(data,None)
+            return
+        itr = self.head
+        while itr.next: 
+            itr = itr.next
+        itr.next = Node(data, None)
+
+if __name__ == '__main__':
+    ll = LinkedList()
+    ll.insert_values(['banana', 'mango', 'grapes', 'orange'])
+    ll.print()
