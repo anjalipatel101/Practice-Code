@@ -1,0 +1,63 @@
+def twoSum(nums, target):
+    storage = {}
+    # Iterate over the list of numbers
+    for i, num in enumerate(nums):   #enumerate adds a counter to an iterable and returns it as an enumerate object (num)
+        # Calculate the complementary number that would sum to the target
+        x = target - num
+        
+        # If the complement is already in the dictionary, return the indices
+        if x in storage:
+            return [storage[x], i]
+        
+        # Otherwise, add the number and its index to the dictionary for future refrence
+        storage[num] = i
+
+    # Return an empty list if no solution is found (though the problem guarantees one solution)
+    return []
+
+
+nums = [6, 10, 11, 22, 55, 33]
+target = 55
+print(twoSum(nums, target))
+
+
+
+'''    
+nums = [2,7,11,15]
+target = 9
+while x + y != target: 
+    x = nums[0]
+    y = nums[1]
+    if x +y != target: 
+        x += 1
+        y += 1
+    else: 
+        print(x,y)
+    
+    
+    
+for i in nums: 
+    x = nums[0] 
+    y = nums[1]
+    if x + y == target: 
+        print (x, y) 
+    else: 
+        x += 1
+        y += 1
+
+
+
+nums = [3,2,4]
+arr = len(nums)
+target = 6
+for i in nums: 
+    x = nums[0] 
+    y = nums[1]
+    if x + y == target: 
+        print (x, y) 
+    elif x + y != target: 
+        x += 1
+        y += 1
+        print(x,y)
+
+'''
